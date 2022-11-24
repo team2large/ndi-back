@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run build && node ./dist/index.js",
+    "start:prod": "npx prisma migrate deploy && npm run start",
     "dev": "nodemon ./src/index.ts",
     "build": "tsc -p ."
   },
