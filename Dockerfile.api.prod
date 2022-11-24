@@ -8,7 +8,6 @@ COPY . /app
 RUN npm ci
 RUN npm install -g --unsafe-perm prisma
 RUN npx prisma generate
-RUN npx prisma migrate deploy
 
 EXPOSE 3333
 
