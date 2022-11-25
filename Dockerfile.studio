@@ -11,4 +11,4 @@ RUN npm install @prisma/photon
 
 CMD [ "npx", "prisma", "studio" ]
 
-EXPOSE 5555
+EXPOSE 4444
