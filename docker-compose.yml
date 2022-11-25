@@ -35,7 +35,7 @@ services:
       context: .
       dockerfile: Dockerfile.studio
     ports:
-      - '127.0.0.1:${STUDIO_PORT}:4444'
+      - '127.0.0.1:${STUDIO_PORT}:5555'
     depends_on:
       - postgres
     environment:
