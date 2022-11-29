@@ -51,6 +51,7 @@ DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:5432/
 ## LANCER EN DEVELOPPEMENT
 - `docker-compose up postgres`
 - `npm run dev`
+- `npx prisma studio` (pour avoir l'interface graphique de la bd)
 
 ## LES URLS
 - API : https://api.team2large.fr/
