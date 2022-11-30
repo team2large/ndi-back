@@ -14,31 +14,30 @@
 ## INSTALLATION
 - Créer un fichier .env et coller :
 ```
+API_PORT=3333
+
 NODE_ENV=development
 
 #################
 
 API_PORT=3333
-
 STUDIO_PORT=4444
 
-POSTGRES_EXPOSE_PORTS=5432
+POSTGRES_EXPOSE_PORTS=127.0.0.1:5432:5432
 
 #################-> API
 
 ACCESS_SECRET_KEY="access_token_bonsoir"
-
 REFRESH_SECRET_KEY="refresh_token_bonsoir"
 
 #################-> POSTGRES
 
-POSTGRES_USER=Michel_La_DB
-
-POSTGRES_PASSWORD=ndi_password
-
-POSTGRES_DB=ndi_database
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
 
 DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:5432/${POSTGRES_DB}"
+
 ```
 
 - `npm i`

@@ -8,7 +8,18 @@ datasource db {
 }
 
 model siteVisits {
-  id       Int      @default(autoincrement()) @id
-  date    DateTime @default(now())
-  ipAddress       String 
+  id        Int      @id @default(autoincrement())
+  date      DateTime @default(now())
+  ipAddress String
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password      String
+  firstName     String
+  lastName      String
+  admin         Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  lastLoginDate DateTime @default(now())
 }
