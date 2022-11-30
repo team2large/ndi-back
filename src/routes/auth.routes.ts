@@ -7,7 +7,7 @@ import errorMiddleware from '../middlewares/errorMiddleware';
 
 export default function authRoutes() {
 
-    app.get('/register', async (req: Request, res: Response, next: NextFunction) => {
+    app.post('/register', async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { email, password, firstName, lastName } = req.body;
 
@@ -27,7 +27,7 @@ export default function authRoutes() {
         }
     }, errorMiddleware);
 
-    app.get('/login', async (req: Request, res: Response, next: NextFunction) => {
+    app.post('/login', async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { email, password } = req.body;
 
