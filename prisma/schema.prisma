@@ -7,12 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model siteVisits {
-  id        Int      @id @default(autoincrement())
-  date      DateTime @default(now())
-  ipAddress String
-}
-
 model Game {
   id          Int           @id @default(autoincrement())
   name        String        @unique
