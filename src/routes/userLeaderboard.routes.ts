@@ -25,6 +25,23 @@ export default function userLeaderboard() {
 			next(error); // error is handled by the error middleware
 		}
 	}, errorMiddleware);
+
+	app.delete('/userLeaderboard/delete', async (req: Request, res: Response, next: NextFunction) => {
+		try {
+			
+			// get data
+			const { username, gameId } = req.body;
+
+			// check data consistency
+			utils.throwIfNotString(username, "Username must be a string");
+			utils.throwIfNotNumber(gameId, "Game id must be an number");
+			
+			await userLeaderboardService.deleteLeaderboardEntry(username, gameId);
+			res.status(200).send("UserLeaderboard entry was successfully deleted.");
+		} catch (error) {
+			next(error); // error is handled by the error middleware
+		}
+	}, errorMiddleware);
 	
 	app.get('/userLeaderboard/getAll', async (req: Request, res: Response, next: NextFunction) => {
 		try {
@@ -35,6 +52,5 @@ export default function userLeaderboard() {
 		} catch (error) {
 			next(error); // error is handled by the error middleware
 		}
-	
 	}, errorMiddleware);
 }
