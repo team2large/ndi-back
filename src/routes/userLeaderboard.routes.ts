@@ -29,10 +29,10 @@ export default function userLeaderboard() {
 	app.delete('/userLeaderboard/delete', async (req: Request, res: Response, next: NextFunction) => {
 		try {
 			
-            // get data
-            const { username, gameId } = req.body;
+			// get data
+			const { username, gameId } = req.body;
 
-            // check data consistency
+			// check data consistency
 			utils.throwIfNotString(username, "Username must be a string");
 			utils.throwIfNotNumber(gameId, "Game id must be an number");
 			
@@ -41,6 +41,7 @@ export default function userLeaderboard() {
 		} catch (error) {
 			next(error); // error is handled by the error middleware
 		}
+	}, errorMiddleware);
 	
 	app.get('/userLeaderboard/getAll', async (req: Request, res: Response, next: NextFunction) => {
 		try {
