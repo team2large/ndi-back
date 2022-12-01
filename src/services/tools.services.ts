@@ -1,5 +1,28 @@
 import client from "../prisma";
-let gamesJson = require("../json/games.json");
+const gamesJson = [
+    {
+        "slug": "depisteur",
+        "name": "Dépisteur",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros. Pellentesque."
+    },
+    {
+        "slug": "ist_clicker",
+        "name": "IST Clicker",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros."
+    },
+    {
+        "slug": "memory_capote",
+        "name": "Memory Capote",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros. Pellentesque mollis consequat imperdiet"
+    },
+    {
+        "slug": "storytelling",
+        "name": "Story Telling",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat"
+    }
+]
+
+
 export async function refreshGames() {
     await client.game.deleteMany();
     for (const game of gamesJson) {
