@@ -10,20 +10,31 @@ export default function userLeaderboard() {
 	app.post('/userLeaderboard/add', async (req: Request, res: Response, next: NextFunction) => {
 		try {
 			
-            // get data
+			// get data
             const { username, gameId, score } = req.body;
-
+			
             // check data consistency
 			utils.throwIfNotString(username, "Username must be a string");
 			utils.throwIfNotNumber(gameId, "Game id must be an number");
 			utils.throwIfNotNumber(score, "Score must be an number");
 			
-			const registerResult = await userLeaderboardService.addleaderboardEntry(username, gameId, score);
-
-			res.status(200).send(registerResult);
+			const result = await userLeaderboardService.addleaderboardEntry(username, gameId, score);
+			
+			res.status(200).send(result);
 		} catch (error) {
 			next(error); // error is handled by the error middleware
 		}
 	}, errorMiddleware);
-
+	
+	app.get('/userLeaderboard/getAll', async (req: Request, res: Response, next: NextFunction) => {
+		try {
+	
+			const result = await userLeaderboardService.allLeaderboardEntries();
+			res.status(200).send(result);
+		
+		} catch (error) {
+			next(error); // error is handled by the error middleware
+		}
+	
+	}, errorMiddleware);
 }
