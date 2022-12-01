@@ -4,12 +4,19 @@ import * as gameService from "./game.services";
 
 
 export async function allLeaderboardEntries(){
-    return await client.userLeaderboard.findMany();
+    return await client.userLeaderboard.findMany({
+        orderBy: {
+            date: 'desc',
+          },
+    });
 }
 
 export async function getGameLeaderboard(gameId: number){
     return await client.userLeaderboard.findMany({
         where: { gameId: gameId },
+        orderBy: {
+            score: 'desc',
+          },
     });
 }
 
