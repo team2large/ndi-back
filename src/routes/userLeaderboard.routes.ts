@@ -53,4 +53,16 @@ export default function userLeaderboard() {
 			next(error); // error is handled by the error middleware
 		}
 	}, errorMiddleware);
+
+	app.get('/userLeaderboard/:gameId', async (req: Request, res: Response, next: NextFunction) => {
+		try {
+	
+			const result = await userLeaderboardService.getGameLeaderboard(Number(req.params.gameId));
+			res.status(200).send(result);
+		
+		} catch (error) {
+			next(error); // error is handled by the error middleware
+		}
+	
+	}, errorMiddleware);
 }
