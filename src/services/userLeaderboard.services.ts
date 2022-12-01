@@ -7,6 +7,12 @@ export async function allLeaderboardEntries(){
     return await client.userLeaderboard.findMany();
 }
 
+export async function getGameLeaderboard(gameId: number){
+    return await client.userLeaderboard.findMany({
+        where: { gameId: gameId },
+    });
+}
+
 export async function addleaderboardEntry(username: string, gameId: number, score: number) {
 
     // Do game exist ?
