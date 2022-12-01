@@ -16,6 +16,8 @@ model siteVisits {
 model Game {
   id          Int           @id @default(autoincrement())
   name        String        @unique
+  slug        String        
+  description String
   leaderboard UserLeaderboard[]
   isStory     Boolean       @default(false)
 }
