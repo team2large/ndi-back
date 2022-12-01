@@ -5,7 +5,7 @@ import * as utils from '../utils/controller.utils';
 
 export default function adminRoutes() {
 
-	app.post('/login', async (req: Request, res: Response, next: NextFunction) => {
+	app.post('/admin/login', async (req: Request, res: Response, next: NextFunction) => {
 		try {
             const hashPasswordToCheck = req.body.password;
 
