@@ -13,13 +13,22 @@ model siteVisits {
   ipAddress String
 }
 
-model User {
-  id            Int      @id @default(autoincrement())
-  email         String   @unique
-  password      String
-  firstName     String
-  lastName      String
-  admin         Boolean  @default(false)
-  createdAt     DateTime @default(now())
-  lastLoginDate DateTime @default(now())
+model Game {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  leaderboard UserLeaderboard[]
+  isStory     Boolean       @default(false)
+}
+
+model Stats {
+  id Int @id @default(autoincrement())
+}
+
+model UserLeaderboard {
+  id     Int      @id @default(autoincrement())
+  username String @unique
+  game   Game     @relation(fields: [gameId], references: [id])
+  gameId Int
+  score  Int
+  date   DateTime @default(now())
 }
