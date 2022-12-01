@@ -7,6 +7,8 @@
     "start": "npm run build && node ./dist/index.js",
     "start:prod": "npx prisma migrate deploy && npm run start",
     "dev": "nodemon ./src/index.ts",
+    "tools:games": "nodemon ./src/tools/generator.tools.ts --exec ts-node",
+    "tools:leaderboard": "nodemon ./src/tools/leaderboard.tools.ts --exec ts-node",
     "build": "tsc -p ."
   },
   "devDependencies": {
