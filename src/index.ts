@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 import { startApp } from './app';
-import userLeaderboardRoutes from './routes/userLeaderboard.routes';
-import gameRoutes from './routes/game.routes';
+import userLeaderboardRoutes from './routes/scores.routes';
+import gameRoutes from './routes/games.routes';
 import toolsRoute from './routes/tools.route';
 
 dotenv.config();

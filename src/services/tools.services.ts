@@ -24,9 +24,9 @@ const gamesJson = [
 
 
 export async function refreshGames() {
-    await client.game.deleteMany();
+    await client.games.deleteMany();
     for (const game of gamesJson) {
-        await client.game.create({
+        await client.games.create({
             data: {
                 name: game.name,
                 isStory: false,
