@@ -12,9 +12,9 @@ export default function adminRoutes() {
             utils.throwIfNotString(hashPasswordToCheck, "Password must be a string"); 
 
             if (process.env.ADMIN_PASSWORD === hashPasswordToCheck) {
-                res.status(200).send('Authorized');
+                res.status(200).send({message: 'Authorized'});
             } else {
-                res.status(401).send('Unauthorized');
+                res.status(401).send({message :'Unauthorized'});
             }
 		} catch (error) {
 			next(error);
