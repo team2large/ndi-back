@@ -9,7 +9,7 @@ export default function toolsRoute() {
 	app.get('/tools/refreshGames', async (req: Request, res: Response, next: NextFunction) => {
 		try {
             await toolsServices.refreshGames();
-			res.status(200).send('Games refreshed');
+			res.status(200).send({message: 'Games refreshed'});
 		} catch (error) {
 			next(error); // error is handled by the error middleware
 		}
