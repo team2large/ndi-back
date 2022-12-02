@@ -6,21 +6,13 @@ import errorMiddleware from '../middlewares/errorMiddleware';
 
 export default function toolsRoute() {
 
-	app.get('/tools/refreshGames', async (req: Request, res: Response, next: NextFunction) => {
+	app.get('/tools/refresh', async (req: Request, res: Response, next: NextFunction) => {
 		try {
-            await toolsServices.refreshGames();
+            await toolsServices.refresh();
 			res.status(200).send({message: 'Games refreshed'});
 		} catch (error) {
 			next(error); // error is handled by the error middleware
 		}
 	}, errorMiddleware);
 
-	app.get('/tools/refreshScores', async (req: Request, res: Response, next: NextFunction) => {
-		try {
-            await toolsServices.refreshScores();
-			res.status(200).send({message: 'Scores refreshed'});
-		} catch (error) {
-			next(error); // error is handled by the error middleware
-		}
-	}, errorMiddleware);
 }
