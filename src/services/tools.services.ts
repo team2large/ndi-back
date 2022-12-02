@@ -19,6 +19,11 @@ const gamesJson = [
         "slug": "storytelling",
         "name": "Story Telling",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat"
+    },
+    {
+        "slug": "morpion",
+        "name": "Morpion",
+        "description": "Affronte les morpions Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat"
     }
 ]
 
