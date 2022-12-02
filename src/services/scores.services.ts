@@ -26,8 +26,13 @@ export async function add(username: string, gameSlug: string, score: number) {
 
     // Make user name unique
 
-    let existingUser = await client.scores.findUnique({
-        where: { username: username },
+    let existingUser = await client.scores.findFirst({
+        where: {
+            username: username,
+            game: {
+                slug: gameSlug
+            }
+        },
     });
 
     let counter : number = 0;
@@ -36,8 +41,13 @@ export async function add(username: string, gameSlug: string, score: number) {
 
         newUsername = username + counter;
 
-        existingUser = await client.scores.findUnique({
-            where: { username: newUsername },
+        existingUser = await client.scores.findFirst({
+            where: {
+                username: newUsername,
+                game: {
+                    slug: gameSlug
+                }
+            },
         });
         counter += 1;
     }
