@@ -3,27 +3,22 @@ const gamesJson = [
     {
         "slug": "depisteur",
         "name": "Dépisteur",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros. Pellentesque."
+        "description": "Démine les IST"
     },
     {
         "slug": "ist_clicker",
         "name": "IST Clicker",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros."
+        "description": "Détruit les toutes"
     },
     {
         "slug": "memory_capote",
-        "name": "Memory Capote",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat, lorem non suscipit porttitor, nunc quam eleifend turpis, ut dignissim tortor mauris ac eros. Pellentesque mollis consequat imperdiet"
-    },
-    {
-        "slug": "storytelling",
-        "name": "Story Telling",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat"
+        "name": "MemoCapote",
+        "description": "Ne capote pas"
     },
     {
         "slug": "morpion",
         "name": "Morpion",
-        "description": "Affronte les morpions Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat"
+        "description": "Affronte les morpions"
     }
 ]
 
