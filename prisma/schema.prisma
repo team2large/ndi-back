@@ -7,12 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Game {
+model Games {
   id          Int           @id @default(autoincrement())
   name        String        @unique
   slug        String        
   description String
-  leaderboard UserLeaderboard[]
+  leaderboard Scores[]
   isStory     Boolean       @default(false)
 }
 
@@ -20,10 +20,10 @@ model Stats {
   id Int @id @default(autoincrement())
 }
 
-model UserLeaderboard {
+model Scores {
   id     Int      @id @default(autoincrement())
   username String @unique
-  game   Game     @relation(fields: [gameId], references: [id])
+  game   Games     @relation(fields: [gameId], references: [id])
   gameId Int
   score  Int
   date   DateTime @default(now())
