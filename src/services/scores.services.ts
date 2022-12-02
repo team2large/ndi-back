@@ -13,7 +13,7 @@ export async function getAll(){
 }
 
 export async function get(gameSlug: string){
-    return (await gameService.getGame(gameSlug))?.leaderboard;
+    return (await gameService.getGame(gameSlug))?.leaderboard.sort((a, b) => b.score - a.score);
 }
 
 export async function add(username: string, gameSlug: string, score: number) {
