@@ -22,6 +22,7 @@ const gamesJson = [
     }
 ]
 
+const usernames = ["leo", "yuri", "lucas", "clian :)", "guillaume", "ruben", "alexandre"]
 
 export async function refreshGames() {
     await client.games.deleteMany();
@@ -35,5 +36,24 @@ export async function refreshGames() {
             },
         });
     }
+}
+
+
+const getRandomInt = (max: number) => Math.floor(Math.random() * max);
+
+export async function refreshScores() {
+    await client.scores.deleteMany();
+    let games = await client.games.findMany();
+    games.forEach(g => {
+        usernames.forEach(async username => {
+            await client.scores.create({
+                data: {
+                    gameId: g.id,
+                    username,
+                    score: getRandomInt(999)
+                }
+            });
+        });
+    })
 }
 

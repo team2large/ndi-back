@@ -15,4 +15,12 @@ export default function toolsRoute() {
 		}
 	}, errorMiddleware);
 
+	app.get('/tools/refreshScores', async (req: Request, res: Response, next: NextFunction) => {
+		try {
+            await toolsServices.refreshScores();
+			res.status(200).send({message: 'Scores refreshed'});
+		} catch (error) {
+			next(error); // error is handled by the error middleware
+		}
+	}, errorMiddleware);
 }

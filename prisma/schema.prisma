@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Games {
-  id          Int           @id @default(autoincrement())
-  name        String        @unique
-  slug        String        
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  slug        String
   description String
   leaderboard Scores[]
-  isStory     Boolean       @default(false)
+  isStory     Boolean  @default(false)
 }
 
 model Stats {
@@ -21,10 +21,10 @@ model Stats {
 }
 
 model Scores {
-  id     Int      @id @default(autoincrement())
-  username String @unique
-  game   Games     @relation(fields: [gameId], references: [id])
-  gameId Int
-  score  Int
-  date   DateTime @default(now())
+  id       Int      @id @default(autoincrement())
+  username String
+  game     Games    @relation(fields: [gameId], references: [id])
+  gameId   Int
+  score    Int
+  date     DateTime @default(now())
 }
