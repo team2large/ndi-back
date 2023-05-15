@@ -5,8 +5,6 @@ services:
     image: postgres:14.1-alpine
     networks:
       - ndi
-    ports:
-      - '${POSTGRES_EXPOSE_PORTS}'
     environment:
       TZ: Europe/Paris
       POSTGRES_USER: '${POSTGRES_USER}'
@@ -14,6 +12,7 @@ services:
       POSTGRES_DB: '${POSTGRES_DB}'
     volumes:
       - ./data:/var/lib/postgresql/data
+    restart: unless-stopped
 
   api:
     build:
@@ -29,21 +28,6 @@ services:
       API_PORT: '${API_PORT}'
     networks:
       - ndi
-
-  studio:
-    build:
-      context: .
-      dockerfile: Dockerfile.studio
-    ports:
-      - '127.0.0.1:${STUDIO_PORT}:5555'
-    depends_on:
-      - postgres
-    environment:
-      TZ: Europe/Paris
-      DATABASE_URL: 'postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}'
-      STUDIO_PORT: '${STUDIO_PORT}'
-    networks:
-      - ndi
-  
+    restart: unless-stopped
 networks:
   ndi:
